@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="rainbow_indigo">#1E425E</color>
+    <color name="myrtle_green">#256670</color>
+    <color name="smith_apple">#ADE28A</color>
+    <color name="key_lime">#EDFA8B</color>
+    <color name="amazon">#407056</color>
+    <color name="green">#13CF1D</color>
+
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>

@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_dashboard_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.UserDashBoard"
+    tools:openDrawer="start">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/user_user_dash_board_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:theme="@style/NavigationTheme"
+        app:headerLayout="@layout/user_dashboard_navigation_header"
+        app:menu="@menu/user_user_dashboard_nav_menu"
+
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/smith_apple">
+
+        <TextView
+            android:id="@+id/user_page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/arizonia"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="60sp" />
+        <!--    <com.airbnb.lottie.LottieAnimationView-->
+        <!--        android:layout_width="200dp"-->
+        <!--        android:layout_height="200dp"-->
+        <!--        app:lottie_rawRes="@raw/user_dash_board_trash"-->
+        <!--        app:lottie_loop="true"-->
+        <!--        app:lottie_autoPlay="true"-->
+        <!--        />-->
+
+        <RelativeLayout
+            android:id="@+id/user_user_dash_board_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/user_bottom_sheet">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/remove"
+
+                />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:scrollbars="none"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/user_card_layout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/use_user_dash_board_card_view"
+                        android:elevation="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:elevation="20dp"
+                            android:orientation="horizontal">
+
+                            <!--            Card 1 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout1_card1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:backgroundTint="@color/smith_apple"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/steel"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Steel"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card1_price_tag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="150 Rs"
+                                    android:textColor="@color/black" />
+
+
+                            </RelativeLayout>
+
+
+                            <!--            Card 2 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout1_card2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/glass"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Glass"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card2_pricetag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="200 Rs"
+                                    android:textColor="@color/black" />
+                            </RelativeLayout>
+
+
+                            <!--            Card 3 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout1_card3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/rubber_ring"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Rubber"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card3_pricetag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="50 Rs"
+                                    android:textColor="@color/black" />
+
+                            </RelativeLayout>
+
+
+                            <!--            Card 4 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout1_card4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/plastic"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Plastic"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card4_pricetag"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="10 Rs"
+                                    android:textColor="@color/black" />
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/user_card_layout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/use_user_dash_board_card_view"
+                        android:elevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:elevation="20dp"
+                            android:orientation="horizontal">
+
+                            <!--            Card 1 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout2_card1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/newspaper"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Paper"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card2_price_tag1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="150 Rs"
+                                    android:textColor="@color/black" />
+
+
+                            </RelativeLayout>
+
+
+                            <!--            Card 2 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout2card2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/glass"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Glass"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card2_pricetag2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="200 Rs"
+                                    android:textColor="@color/black" />
+                            </RelativeLayout>
+
+
+                            <!--            Card 3 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout2_card3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/rubber_ring"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Rubber"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/card3_pricetag3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="50 Rs"
+                                    android:textColor="@color/black" />
+
+                            </RelativeLayout>
+
+
+                            <!--            Card 4 Layout                   -->
+                            <RelativeLayout
+                                android:id="@+id/layout2_card4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="20dp">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:layout_marginBottom="20dp"
+                                        android:background="@drawable/plastic"
+                                        android:scaleType="centerCrop" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentBottom="true"
+                                        android:fontFamily="@font/brand_ongrotesque_black"
+                                        android:gravity="center"
+                                        android:text="Plastic"
+                                        android:textColor="@color/black" />
+                                </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/card4_pricetag4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10 Rs"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:textColor="@color/black" />
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/add_order_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/use_user_dash_board_card_view"
+                        android:elevation="10dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Steel"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:id="@+id/removeSteel100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:id="@+id/steelNumeric"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:id="@+id/addSteel100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Glass"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:id="@+id/removeGlass100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:id="@+id/glassNumeric"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:id="@+id/addGlass100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Rubber"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:id="@+id/removeRubber100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:id="@+id/rubberNumeric"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:id="@+id/addRubber100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Plastic"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:id="@+id/removePlastic100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:id="@+id/plasticNumeric"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:id="@+id/addPlastic100"
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Paper"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Paper"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Paper"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:fontFamily="@font/brand_ongrotesque_black"
+                                    android:gravity="center"
+                                    android:text="Paper"
+                                    android:textColor="@color/black" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0">
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentStart="true"
+                                        android:src="@drawable/remove" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center"
+                                        android:text="0 kg" />
+
+                                    <ImageView
+                                        android:layout_width="10dp"
+                                        android:layout_height="10dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:src="@drawable/user_order_add" />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="20dp"
+                        android:backgroundTint="@color/smith_apple"
+                        android:gravity="center"
+                        android:text=" Take a Pic"
+                        app:icon="@drawable/camera"
+
+                        app:iconGravity="textStart"
+
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp" />
+
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+
+
+        <!--    Bottom app bar layout-->
+        <RelativeLayout
+            android:id="@+id/user_user_dash_board_appBar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/user_user_dash_board_appBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/green"
+                android:src="@drawable/user_order_add"
+                tools:ignore="NotSibling" />
+
+            <!--        Bottom app bar-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/user_userdash_board_app_bar">
+
+                <ImageView
+                    android:id="@+id/user_user_dash_board_profile"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:padding="5dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/hamburger"
+                    />
+
+
+
+                <ImageView
+                    android:id="@+id/next_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/send" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
