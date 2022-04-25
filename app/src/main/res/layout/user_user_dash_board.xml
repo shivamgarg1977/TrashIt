@@ -8,17 +8,17 @@
     tools:context=".user.UserDashBoard"
     tools:openDrawer="start">
 
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/user_user_dash_board_navigation_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:background="@color/white"-->
-<!--        android:theme="@style/NavigationTheme"-->
-<!--        app:headerLayout="@layout/user_dashboard_navigation_header"-->
-<!--        app:menu="@menu/user_user_dashboard_nav_menu"-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/user_user_dash_board_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:theme="@style/NavigationTheme"
+        app:headerLayout="@layout/user_dashboard_navigation_header"
+        app:menu="@menu/user_user_dashboard_nav_menu"
 
-<!--        />-->
+        />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
