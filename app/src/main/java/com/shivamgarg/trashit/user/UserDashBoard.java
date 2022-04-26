@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -30,6 +32,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView DashboardProfile;
+    View layout1;
 
 
     // Hooks of Layouts
@@ -67,13 +70,17 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     ExtendedFloatingActionButton takeAPic;
     ImageView nextBtn;
 
+    //Hooks of place pickup drawable
+    FrameLayout placePickup;
+    TextView pickupWeight;
+
 
     //Values for orders
     public double weightOfSteel = 0.0;
     private double weightOfGlass = 0.0;
     private double weightOfRubber = 0.0;
     private double weightOfPlastic = 0.0;
-
+    public double totalWeight=0.0;
 
 
     @Override
@@ -121,6 +128,9 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
         
         DashboardProfile=findViewById(R.id.user_user_dash_board_profile);
+        layout1=findViewById(R.id.user_dashboard_Layout1);
+        placePickup=findViewById(R.id.place_pickup_bottom_sheet);
+        pickupWeight=findViewById(R.id.place_pickup_weight);
 
         //navigation Drawer
         navigationDrawer();
@@ -192,7 +202,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                 startActivity(intent);
                 }else{
-                    
+                    layout1.setAlpha(0.8f);
+                    totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
+                    pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
+                    placePickup.setVisibility(View.VISIBLE);
+
                 }
 
             }

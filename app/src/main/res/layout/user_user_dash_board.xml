@@ -21,6 +21,7 @@
         />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/smith_apple">
@@ -54,6 +55,7 @@
                 />
 
             <ScrollView
+                android:id="@+id/user_dashboard_Layout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
@@ -833,13 +835,12 @@
                     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                         android:id="@+id/camera"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="50dp"
                         android:layout_margin="20dp"
                         android:backgroundTint="@color/smith_apple"
                         android:gravity="center"
                         android:text=" Take a Pic"
                         app:icon="@drawable/camera"
-
                         app:iconGravity="textStart"
 
                         />
@@ -916,95 +917,125 @@
         </RelativeLayout>
 
 
-        <FrameLayout
 
-        android:id="@+id/standard_bottom_sheet"
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/user_dashboard_coordinator_Layout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <FrameLayout
+            android:id="@+id/place_pickup_bottom_sheet"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="400dp"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            android:background="@drawable/place_pickup_shape">
-            <LinearLayout
+            android:background="@drawable/place_pickup_shape"
+            android:elevation="20dp"
+            android:visibility="gone"
+            >
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="20dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="20dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Overall Weight"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/brand_ongrotesque_black"
-                        android:textSize="35sp"
-                        android:paddingStart="20dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5 KGs"
+                        android:layout_marginTop="0dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Overall Weight"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/brand_ongrotesque_black"
+                            android:textSize="35sp"
+                            android:paddingStart="20dp"/>
+                        <TextView
+                            android:id="@+id/place_pickup_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5 KGs"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/brand_ongrotesque_black"
+                            android:textSize="20sp"
+                            android:paddingStart="20dp"
+                            />
+                    </LinearLayout>
 
-                        android:textStyle="bold"
-                        android:fontFamily="@font/brand_ongrotesque_black"
-                        android:textSize="30sp"
-                        android:paddingStart="20dp"
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/user_address"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:visibility="visible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_address_input_View"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter your address"
+                            android:inputType="text"
+
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/user_pincode"
+                        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:visibility="visible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_pincode_input_View"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Pincode"
+                            android:inputType="number"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="I ,here accept all the terms and conditions"
+                        android:padding="20dp"
                         />
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/place_pickup"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="20dp"
+                        android:backgroundTint="@color/smith_apple"
+                        android:gravity="center"
+                        android:text="Place Pickup"
+                        app:iconGravity="textStart"
+
+                        />
+
                 </LinearLayout>
 
+            </RelativeLayout>
 
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/user_address"
-                    style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:visibility="visible">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/user_address_input_View"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter your address"
-                        android:inputType="text"
-
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/user_pincode"
-                    style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:visibility="visible">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/user_pincode_input_View"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Pincode"
-                        android:inputType="number"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </LinearLayout>
-
-
-
-    </FrameLayout>
-
+        </FrameLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
