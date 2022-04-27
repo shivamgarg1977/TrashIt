@@ -14,10 +14,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/white"
-        android:theme="@style/NavigationTheme"
         app:headerLayout="@layout/user_dashboard_navigation_header"
         app:menu="@menu/user_user_dashboard_nav_menu"
-
         />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
