@@ -19,12 +19,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.shivamgarg.trashit.R;
+import com.shivamgarg.trashit.common.SignUpActivity;
 
 public class UserDashBoard extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,7 +34,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView DashboardProfile;
-    View layout1;
+    CoordinatorLayout layout1;
 
 
     // Hooks of Layouts
@@ -80,6 +82,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     private double weightOfGlass = 0.0;
     private double weightOfRubber = 0.0;
     private double weightOfPlastic = 0.0;
+    private static final float END_SCALE=0.7f;
     public double totalWeight=0.0;
 
 
@@ -128,7 +131,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
         
         DashboardProfile=findViewById(R.id.user_user_dash_board_profile);
-        layout1=findViewById(R.id.user_dashboard_Layout1);
+        layout1=findViewById(R.id.user_dashboard_coordinator_Layout1);
         placePickup=findViewById(R.id.place_pickup_bottom_sheet);
         pickupWeight=findViewById(R.id.place_pickup_weight);
 
@@ -136,13 +139,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         navigationDrawer();
 
 
-
-        // Touch Listener on Add Button
-        // single and double tap
-        addOrder.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
+        addOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(addOrderLayout.getVisibility()==View.VISIBLE){
                     addOrder.setImageResource(R.drawable.user_order_add);
 
                     addOrderLayout.setVisibility(View.GONE);
@@ -152,12 +152,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                     params.height = 1300;
 
                     userBottomSheet.setLayoutParams(params);
-                    return super.onDoubleTap(e);
                 }
-
-
-                @Override
-                public boolean onSingleTapConfirmed(MotionEvent e) {
+                else{
                     Toast.makeText(UserDashBoard.this, "Cards are now Clickable! ", Toast.LENGTH_SHORT).show();
                     addOrder.setImageResource(R.drawable.ic_outline_keyboard_arrow_down_24);
                     ViewGroup.LayoutParams params = userBottomSheet.getLayoutParams();
@@ -165,16 +161,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                     params.height = 1800;
                     addOrderLayout.setVisibility(View.VISIBLE);
                     userBottomSheet.setLayoutParams(params);
-                    return super.onSingleTapConfirmed(e);
                 }
-            });
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return false;
             }
         });
+
 
 
         // Click Listener on Camera
@@ -198,30 +188,16 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         takeAPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(takeAPic.getText().toString().equals(" Take a Pic")){
                 Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                 startActivity(intent);
-                }else{
-                    layout1.setAlpha(0.8f);
-                    totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
-                    pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
-                    placePickup.setVisibility(View.VISIBLE);
-
-                }
-
             }
         });
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(takeAPic.getText().toString().equals(" Take a Pic")){
-                    takeAPic.setText(" Place Pickup");
-                    takeAPic.setIcon(null);
-                }else{
-                    Drawable img = getResources().getDrawable(R.drawable.camera);
-                    takeAPic.setText(" Take a Pic");
-                    takeAPic.setIcon(img);
-                }
+                totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
+                pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
+                placePickup.setVisibility(View.VISIBLE);
             }
         });
 
@@ -231,13 +207,78 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.user_nav_home);
+        View headerView = navigationView.getHeaderView(0);
+        headerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profileIntent = new Intent(UserDashBoard.this,
+                        UserProfile.class);
+                startActivity(profileIntent);
+            }
+        });
 
         DashboardProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else{
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
             }
         });
+        animateNavigationDrawer();
+    }
+
+    private void animateNavigationDrawer() {
+        //Add any color or remove it to use the default one!
+        //To make it transparent use Color.Transparent in side setScrimColor();
+        //drawerLayout.setScrimColor(Color.TRANSPARENT);
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+                // Scale the View based on current slide offset
+                final float diffScaledOffset = slideOffset * (1 - END_SCALE);
+                final float offsetScale = 1 - diffScaledOffset;
+                layout1.setScaleX(offsetScale);
+                layout1.setScaleY(offsetScale);
+
+                // Translate the View, accounting for the scaled width
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = layout1.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                layout1.setTranslationX(xTranslation);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else if(placePickup.getVisibility()==View.VISIBLE){
+            placePickup.setVisibility(View.INVISIBLE);
+        }
+        else{
+            super.onBackPressed();
+        }
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.user_navigation_feedback:
+                Intent feedbackIntent = new Intent(UserDashBoard.this,
+                        UserFeedback.class);
+                startActivity(feedbackIntent);
+                break;
+
+
+        }
+        return true;
     }
 
     @Override
@@ -293,9 +334,6 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         plasticWeight.setText(String.format("%.1f",weightOfPlastic)+" kg");
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true;
-    }
+
 }
 

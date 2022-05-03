@@ -6,6 +6,7 @@
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/button_background_blue.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/common_signup_anime.xml" value="0.165" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/feedback_bottomsheet.xml" value="0.1725" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/ic_back_img.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/ic_google_plus.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/ic_login_hero.xml" value="0.165" />
@@ -25,7 +26,9 @@
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/user_userdash_board_header_profile_pic.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/activity_login.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/activity_sign_up.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/activity_user_feedback.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/activity_user_profile.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/activity_user_report_problem.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/common_on_boarding_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/common_splash_screen.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/layout/user_dashboard_navigation_header.xml" value="0.23229166666666667" />

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrashIt">
         <activity
+            android:name=".user.UserFeedback"
+            android:exported="false" />
+        <activity
+            android:name=".user.UserReportProblem"
+            android:exported="false" />
+        <activity
             android:name=".user.UserProfile"
             android:exported="false" />
         <activity
