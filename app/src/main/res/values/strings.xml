@@ -2,4 +2,9 @@
     <string name="app_name">Trash-it </string>
     <string name="lets_get_started">Lets Get Started</string>
     <string name="app_sub_title">App for waste collection and management</string>
+    <string-array name="Bug_type">
+        <item>Bug in profile </item>
+        <item>Bug in dashboard section</item>
+        <item>Bug in navigation section</item>
+    </string-array>
 </resources>
