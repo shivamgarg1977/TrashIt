@@ -285,6 +285,12 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 startActivity(logoutIntent);
                 finish();
                 break;
+            case R.id.user_navigation_report:
+                Intent reportIntent = new Intent(UserDashBoard.this,
+                        ReportABug.class);
+
+                startActivity(reportIntent);
+                break;
 
         }
         return true;
