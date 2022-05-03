@@ -139,13 +139,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         navigationDrawer();
 
 
-
-        // Touch Listener on Add Button
-        // single and double tap
-        addOrder.setOnTouchListener(new View.OnTouchListener() {
-            GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
+        addOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(addOrderLayout.getVisibility()==View.VISIBLE){
                     addOrder.setImageResource(R.drawable.user_order_add);
 
                     addOrderLayout.setVisibility(View.GONE);
@@ -155,12 +152,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                     params.height = 1300;
 
                     userBottomSheet.setLayoutParams(params);
-                    return super.onDoubleTap(e);
                 }
-
-
-                @Override
-                public boolean onSingleTapConfirmed(MotionEvent e) {
+                else{
                     Toast.makeText(UserDashBoard.this, "Cards are now Clickable! ", Toast.LENGTH_SHORT).show();
                     addOrder.setImageResource(R.drawable.ic_outline_keyboard_arrow_down_24);
                     ViewGroup.LayoutParams params = userBottomSheet.getLayoutParams();
@@ -168,16 +161,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                     params.height = 1800;
                     addOrderLayout.setVisibility(View.VISIBLE);
                     userBottomSheet.setLayoutParams(params);
-                    return super.onSingleTapConfirmed(e);
                 }
-            });
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return false;
             }
         });
+
 
 
         // Click Listener on Camera
@@ -201,29 +188,16 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         takeAPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(takeAPic.getText().toString().equals(" Take a Pic")){
                 Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                 startActivity(intent);
-                }else{
-                    totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
-                    pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
-                    placePickup.setVisibility(View.VISIBLE);
-
-                }
-
             }
         });
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(takeAPic.getText().toString().equals(" Take a Pic")){
-                    takeAPic.setText(" Place Pickup");
-                    takeAPic.setIcon(null);
-                }else{
-                    Drawable img = getResources().getDrawable(R.drawable.camera);
-                    takeAPic.setText(" Take a Pic");
-                    takeAPic.setIcon(img);
-                }
+                totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
+                pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
+                placePickup.setVisibility(View.VISIBLE);
             }
         });
 
@@ -283,7 +257,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     public void onBackPressed() {
         if(drawerLayout.isDrawerVisible(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
-        }else{
+        }
+        else if(placePickup.getVisibility()==View.VISIBLE){
+            placePickup.setVisibility(View.INVISIBLE);
+        }
+        else{
             super.onBackPressed();
         }
 
