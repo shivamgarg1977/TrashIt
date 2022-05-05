@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrashIt">
         <activity
+            android:name=".user.OrderInProgress"
+            android:exported="false" />
+        <activity
             android:name=".user.ReportABug"
             android:exported="false" />
         <activity
