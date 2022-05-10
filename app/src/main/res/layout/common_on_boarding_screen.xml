@@ -4,54 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".common.OnBoardingScreen">
+    tools:context=".common.OnBoardingScreen"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/skip_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="SKIP"
+        android:onClick="skip"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="20dp"
+        android:padding="10dp"
+        android:background="#00000000"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_double_arrow_right_24"
+        />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/common_on_boarding_screen_viewPager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/common_on_boarding_screen_relative_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/skip_btn" >
+
+    </androidx.viewpager.widget.ViewPager>
+
 
     <RelativeLayout
-        android:id="@+id/common_on_boarding_screen_relative_layout"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/common_on_boarding_screen_viewPager">
-
-        <LinearLayout
-            android:id="@+id/common_on_boarding_screen_dots_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:orientation="horizontal" />
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/common_on_boarding_screen_lets_gets_started"
+            android:id="@+id/lets_get_started"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/common_on_boarding_screen_dots_layout"
-            android:background="@color/smith_apple"
+            android:layout_height="75dp"
             android:fontFamily="@font/brand_ongrotesque_black"
-            android:text="@string/lets_get_started" />
+            android:text="@string/lets_get_started"
+            android:visibility="invisible"
+            android:textColor="@color/black" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <LinearLayout
+            android:id="@+id/dots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:padding="20dp"
-            android:src="@drawable/next_btn" />
+            android:gravity="bottom|center"/>
+
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

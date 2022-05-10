@@ -23,11 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:elevation="20dp"
-        android:fontFamily="@font/brand_ongrotesque_black"
+        android:fontFamily="More Fonts..."
         android:text="Already \nhave an \nAccount?"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
