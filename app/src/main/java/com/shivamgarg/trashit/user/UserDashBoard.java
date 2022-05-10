@@ -130,7 +130,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         rubberWeight = (TextView) findViewById(R.id.rubberNumeric);
         plasticWeight = (TextView) findViewById(R.id.plasticNumeric);
 
-        
+
         DashboardProfile=findViewById(R.id.user_user_dash_board_profile);
         layout1=findViewById(R.id.user_dashboard_coordinator_Layout1);
         placePickup=findViewById(R.id.place_pickup_bottom_sheet);
@@ -291,7 +291,12 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
                 startActivity(reportIntent);
                 break;
+            case R.id.user_navigation_order_in_progress:
+                Intent progressIntent = new Intent(UserDashBoard.this,
+                        OrderInProgress.class);
 
+                startActivity(progressIntent);
+                break;
         }
         return true;
     }
@@ -351,4 +356,3 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
 
 }
-

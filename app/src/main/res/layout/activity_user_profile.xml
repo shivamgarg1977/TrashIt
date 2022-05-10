@@ -80,15 +80,6 @@
 
                     >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Name"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -130,15 +121,7 @@
                     </RelativeLayout>
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Phone Number"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -179,15 +162,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Email"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -228,15 +203,6 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Address"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
