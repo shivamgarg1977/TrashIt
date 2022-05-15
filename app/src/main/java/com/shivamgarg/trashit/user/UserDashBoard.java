@@ -25,12 +25,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.shivamgarg.trashit.R;
 import com.shivamgarg.trashit.common.LoginActivity;
 import com.shivamgarg.trashit.common.SignUpActivity;
 
 public class UserDashBoard extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
-
     // Hooks of Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -92,7 +92,6 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_user_dash_board);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
         // Find View By Id
         drawerLayout=findViewById(R.id.user_dashboard_drawer_layout);
@@ -280,6 +279,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.user_navigation_log_out:
+                FirebaseAuth.getInstance().signOut();
                 Intent logoutIntent=new Intent(UserDashBoard.this,
                         LoginActivity.class);
                 startActivity(logoutIntent);
