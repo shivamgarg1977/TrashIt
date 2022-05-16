@@ -30,7 +30,7 @@
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/brand_ongrotesque_black"
                 android:gravity="center"
-                android:text="Shivam Garg"
+                android:text="Profile"
                 android:textSize="30sp"
                 android:textStyle="bold"
 
@@ -107,16 +107,7 @@
                                 android:maxLines="1" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/Profile_name_text_View"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="start"
-                            android:text="TextView"
-                            android:textSize="17sp"
-                            android:visibility="invisible" />
+
 
                     </RelativeLayout>
 
@@ -149,16 +140,7 @@
                                 android:maxLines="1" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/Profile_phone_text_View"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="start"
-                            android:text="TextView"
-                            android:textSize="17sp"
-                            android:visibility="invisible" />
+
 
                     </RelativeLayout>
 
@@ -190,16 +172,7 @@
                                 android:maxLines="1" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/Profile_email_text_View"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="start"
-                            android:text="TextView"
-                            android:textSize="17sp"
-                            android:visibility="invisible" />
+
 
                     </RelativeLayout>
 
@@ -229,16 +202,7 @@
                                 android:inputType="textMultiLine" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <TextView
-                            android:id="@+id/Profile_Address_text_View"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="start"
-                            android:text="TextView"
-                            android:textSize="17sp"
-                            android:visibility="invisible" />
+
 
                     </RelativeLayout>
                 </LinearLayout>
@@ -249,16 +213,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/edit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginBottom="30dp"
-                        android:layout_weight="1"
-                        android:text="Edit" />
+
 
                     <Button
                         android:id="@+id/save"

@@ -1,12 +1,9 @@
 package com.shivamgarg.trashit.user;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.GestureDetector;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -22,15 +19,24 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.shivamgarg.trashit.R;
 import com.shivamgarg.trashit.common.LoginActivity;
-import com.shivamgarg.trashit.common.SignUpActivity;
 
-public class UserDashBoard extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
+import org.w3c.dom.Text;
+
+public class UserDashBoard extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+    FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference ref;
     // Hooks of Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -83,8 +89,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     private double weightOfGlass = 0.0;
     private double weightOfRubber = 0.0;
     private double weightOfPlastic = 0.0;
-    private static final float END_SCALE=0.7f;
-    public double totalWeight=0.0;
+    private static final float END_SCALE = 0.7f;
+    public double totalWeight = 0.0;
+    private String fullName;
+    private String email;
+    private String phoneNumber;
 
 
     @Override
@@ -92,36 +101,63 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_user_dash_board);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        mAuth = FirebaseAuth.getInstance();
+        database=FirebaseDatabase.getInstance();
 
+        ref=database.getReference("Users");
+        String Uid=getIntent().getStringExtra("Uid");
+        ref.child(Uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot= task.getResult();
+
+                        TextView profileName=navigationView.getHeaderView(0).findViewById(R.id.nav_header_full_name);
+                        profileName.setText(String.valueOf(dataSnapshot.child("fullName").getValue()));
+                        fullName=String.valueOf(dataSnapshot.child("fullName").getValue());
+                        email=String.valueOf(dataSnapshot.child("email").getValue());
+                        phoneNumber=String.valueOf(dataSnapshot.child("phoneNumber").getValue());
+
+                    }else{
+                        Toast.makeText(UserDashBoard.this, "User Doesn't exists", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(UserDashBoard.this, "Failed! to fetch data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         // Find View By Id
-        drawerLayout=findViewById(R.id.user_dashboard_drawer_layout);
-        navigationView=findViewById(R.id.user_user_dash_board_navigation_view);
+        drawerLayout = findViewById(R.id.user_dashboard_drawer_layout);
+        navigationView = findViewById(R.id.user_user_dash_board_navigation_view);
 
 
         userBottomSheet = findViewById(R.id.user_user_dash_board_bottom_sheet);
         addOrderLayout = findViewById(R.id.add_order_layout);
         addOrder = findViewById(R.id.add_order);
         takeAPic = findViewById(R.id.camera);
-        nextBtn=findViewById(R.id.next_btn);
+        nextBtn = findViewById(R.id.next_btn);
 
         SteelCard = findViewById(R.id.layout1_card1);
-        steelRemove100=findViewById(R.id.removeSteel100);
-        steelAdd100=findViewById(R.id.addSteel100);
+        steelRemove100 = findViewById(R.id.removeSteel100);
+        steelAdd100 = findViewById(R.id.addSteel100);
 
 
         GlassCard = findViewById(R.id.layout1_card2);
-        glassRemove100=findViewById(R.id.removeGlass100);
-        glassAdd100=findViewById(R.id.addGlass100);
+        glassRemove100 = findViewById(R.id.removeGlass100);
+        glassAdd100 = findViewById(R.id.addGlass100);
 
 
         RubberCard = findViewById(R.id.layout1_card3);
-        rubberRemove100=findViewById(R.id.removeRubber100);
-        rubberAdd100=findViewById(R.id.addRubber100);
+        rubberRemove100 = findViewById(R.id.removeRubber100);
+        rubberAdd100 = findViewById(R.id.addRubber100);
 
 
         PlasticCard = findViewById(R.id.layout1_card4);
-        plasticRemove100=findViewById(R.id.removePlastic100);
-        plasticAdd100=findViewById(R.id.addPlastic100);
+        plasticRemove100 = findViewById(R.id.removePlastic100);
+        plasticAdd100 = findViewById(R.id.addPlastic100);
 
 
         steelWeight = (TextView) findViewById(R.id.steelNumeric);
@@ -130,10 +166,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         plasticWeight = (TextView) findViewById(R.id.plasticNumeric);
 
 
-        DashboardProfile=findViewById(R.id.user_user_dash_board_profile);
-        layout1=findViewById(R.id.user_dashboard_coordinator_Layout1);
-        placePickup=findViewById(R.id.place_pickup_bottom_sheet);
-        pickupWeight=findViewById(R.id.place_pickup_weight);
+        DashboardProfile = findViewById(R.id.user_user_dash_board_profile);
+        layout1 = findViewById(R.id.user_dashboard_coordinator_Layout1);
+        placePickup = findViewById(R.id.place_pickup_bottom_sheet);
+        pickupWeight = findViewById(R.id.place_pickup_weight);
 
         //navigation Drawer
         navigationDrawer();
@@ -142,7 +178,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         addOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(addOrderLayout.getVisibility()==View.VISIBLE){
+                if (addOrderLayout.getVisibility() == View.VISIBLE) {
                     addOrder.setImageResource(R.drawable.user_order_add);
 
                     addOrderLayout.setVisibility(View.GONE);
@@ -152,8 +188,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                     params.height = 1300;
 
                     userBottomSheet.setLayoutParams(params);
-                }
-                else{
+                } else {
                     Toast.makeText(UserDashBoard.this, "Cards are now Clickable! ", Toast.LENGTH_SHORT).show();
                     addOrder.setImageResource(R.drawable.ic_outline_keyboard_arrow_down_24);
                     ViewGroup.LayoutParams params = userBottomSheet.getLayoutParams();
@@ -164,7 +199,6 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
-
 
 
         // Click Listener on Camera
@@ -195,8 +229,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                totalWeight=weightOfGlass+weightOfPlastic+weightOfRubber+weightOfSteel;
-                pickupWeight.setText(String.valueOf(totalWeight)+ "KGs");
+                totalWeight = weightOfGlass + weightOfPlastic + weightOfRubber + weightOfSteel;
+                pickupWeight.setText(String.valueOf(totalWeight) + "KGs");
                 placePickup.setVisibility(View.VISIBLE);
             }
         });
@@ -208,11 +242,15 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.user_nav_home);
         View headerView = navigationView.getHeaderView(0);
+        ;
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent profileIntent = new Intent(UserDashBoard.this,
                         UserProfile.class);
+                profileIntent.putExtra("fullName",fullName);
+                profileIntent.putExtra("email",email);
+                profileIntent.putExtra("phoneNumber",phoneNumber);
                 startActivity(profileIntent);
             }
         });
@@ -220,9 +258,9 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         DashboardProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+                if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }else{
+                } else {
                     drawerLayout.openDrawer(GravityCompat.START);
                 }
             }
@@ -255,13 +293,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+        if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else if(placePickup.getVisibility()==View.VISIBLE){
+        } else if (placePickup.getVisibility() == View.VISIBLE) {
             placePickup.setVisibility(View.INVISIBLE);
-        }
-        else{
+        } else {
             super.onBackPressed();
         }
 
@@ -269,7 +305,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.user_navigation_feedback:
                 Intent feedbackIntent = new Intent(UserDashBoard.this,
                         UserFeedback.class);
@@ -279,8 +315,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.user_navigation_log_out:
-                FirebaseAuth.getInstance().signOut();
-                Intent logoutIntent=new Intent(UserDashBoard.this,
+                mAuth.signOut();
+                Intent logoutIntent = new Intent(UserDashBoard.this,
                         LoginActivity.class);
                 startActivity(logoutIntent);
                 finish();
@@ -318,40 +354,40 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 weightOfPlastic += 1;
                 break;
             case R.id.removeSteel100:
-                weightOfSteel -=0.1;
+                weightOfSteel -= 0.1;
                 break;
             case R.id.removeGlass100:
-                weightOfGlass -=0.1;
+                weightOfGlass -= 0.1;
                 break;
             case R.id.removeRubber100:
-                weightOfRubber -=0.1;
+                weightOfRubber -= 0.1;
                 break;
             case R.id.removePlastic100:
-                weightOfPlastic -=0.1;
+                weightOfPlastic -= 0.1;
                 break;
 
             case R.id.addSteel100:
-                weightOfSteel +=0.1;
+                weightOfSteel += 0.1;
                 break;
             case R.id.addGlass100:
-                weightOfGlass +=0.1;
+                weightOfGlass += 0.1;
                 break;
             case R.id.addRubber100:
-                weightOfRubber +=0.1;
+                weightOfRubber += 0.1;
                 break;
             case R.id.addPlastic100:
-                weightOfPlastic +=0.1;
+                weightOfPlastic += 0.1;
                 break;
         }
         display();
     }
 
 
-    public void display(){
-        steelWeight.setText(String.format("%.1f",weightOfSteel)+" kg");
-        glassWeight.setText(String.format("%.1f",weightOfGlass)+" kg");
-        rubberWeight.setText(String.format("%.1f",weightOfRubber)+" kg");
-        plasticWeight.setText(String.format("%.1f",weightOfPlastic)+" kg");
+    public void display() {
+        steelWeight.setText(String.format("%.1f", weightOfSteel) + " kg");
+        glassWeight.setText(String.format("%.1f", weightOfGlass) + " kg");
+        rubberWeight.setText(String.format("%.1f", weightOfRubber) + " kg");
+        plasticWeight.setText(String.format("%.1f", weightOfPlastic) + " kg");
     }
 
 
