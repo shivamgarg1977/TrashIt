@@ -53,7 +53,7 @@ public class OnBoardingScreen extends AppCompatActivity {
         });
     }
     public void skip(View view){
-        startActivity(new Intent(this, UserDashBoard.class));
+        startActivity(new Intent(this, SignUpActivity.class));
         finish();
     }
     public void next(View view){
