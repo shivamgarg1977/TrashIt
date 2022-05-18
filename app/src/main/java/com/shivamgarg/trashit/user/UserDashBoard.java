@@ -54,6 +54,14 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     RelativeLayout GlassCard;
     RelativeLayout RubberCard;
     RelativeLayout PlasticCard;
+
+    //second hooks of cards
+    RelativeLayout PaperCard;
+    RelativeLayout DevicesCard;
+    RelativeLayout WiresCard;
+    RelativeLayout DonateCard;
+    // aman
+
     TextView steelWeight;
     ImageView steelRemove100;
     ImageView steelAdd100;
@@ -73,6 +81,24 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     ImageView plasticRemove100;
     ImageView plasticAdd100;
 
+    // sheet of card 2
+    //paper list
+    TextView paperWeight;
+    ImageView paperRemove100;
+    ImageView paperAdd100;
+
+    //devices list
+    TextView devicesWeight;
+    ImageView devicesRemove100;
+    ImageView devicesAdd100;
+
+    //Wires list
+    TextView wiresWeight;
+    ImageView wiresRemove100;
+    ImageView wiresAdd100;
+
+    //
+
 
     //Hooks of Button
     FloatingActionButton addOrder;
@@ -89,6 +115,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     private double weightOfGlass = 0.0;
     private double weightOfRubber = 0.0;
     private double weightOfPlastic = 0.0;
+    private double weightOfPaper =0.0;
+    private double weightOfDevices =0.0;
+    private double weightOfWires =0.0;
+
+
     private static final float END_SCALE = 0.7f;
     public double totalWeight = 0.0;
     private String fullName;
@@ -159,6 +190,21 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         plasticRemove100 = findViewById(R.id.removePlastic100);
         plasticAdd100 = findViewById(R.id.addPlastic100);
 
+        PaperCard= findViewById(R.id.layout2_card1);
+        paperRemove100 = findViewById(R.id.removePaper100);
+        paperAdd100 = findViewById(R.id.addPaper100);
+
+        DevicesCard = findViewById(R.id.layout2card2);
+        devicesRemove100 = findViewById(R.id.removeDevice100);
+        devicesAdd100 = findViewById(R.id.addDevice100);
+
+        WiresCard = findViewById(R.id.layout2_card3);
+        devicesRemove100 = findViewById(R.id.removeWire);
+        devicesAdd100 = findViewById(R.id.addWire);
+
+
+
+
 
         steelWeight = (TextView) findViewById(R.id.steelNumeric);
         glassWeight = (TextView) findViewById(R.id.glassNumeric);
@@ -170,6 +216,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         layout1 = findViewById(R.id.user_dashboard_coordinator_Layout1);
         placePickup = findViewById(R.id.place_pickup_bottom_sheet);
         pickupWeight = findViewById(R.id.place_pickup_weight);
+
+        // second layout card
+        paperWeight = findViewById(R.id.paperNumeric);
+
 
         //navigation Drawer
         navigationDrawer();
@@ -185,7 +235,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
                     ViewGroup.LayoutParams params = userBottomSheet.getLayoutParams();
                     // Changes the height and width to the specified *pixels*
-                    params.height = 1300;
+                    params.height = 1400;
 
                     userBottomSheet.setLayoutParams(params);
                 } else {

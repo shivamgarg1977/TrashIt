@@ -17,13 +17,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/brand_ongrotesque_black"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/archivo_black"
             android:gravity="center"
-            android:text="Shivam Garg"
-            android:textSize="28sp"
-            android:textStyle="bold"
-
-            />
+            android:text="Aman Aryan"
+            android:textColor="#000000"
+            android:textSize="25sp"
+             />
 
     </RelativeLayout>
 

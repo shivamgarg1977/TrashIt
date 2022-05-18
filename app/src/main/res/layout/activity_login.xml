@@ -8,7 +8,7 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="200dp"
         android:layout_margin="30dp"
         android:background="@drawable/common_signup_anime"
@@ -21,11 +21,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="35dp"
         android:elevation="20dp"
         android:fontFamily="More Fonts..."
+        android:padding="5dp"
         android:text="Already \nhave an \nAccount?"
-        android:textSize="34sp"
+        android:textColor="#000000"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -99,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:backgroundTint="@color/smith_apple"
-            android:text="Register" />
+            android:text="Log In" />
 
         <TextView
             android:layout_width="wrap_content"
