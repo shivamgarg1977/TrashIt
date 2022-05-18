@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/brand_ongrotesque_black"
             android:gravity="center"
-            android:text="Shivam Garg"
+            android:text=""
             android:textSize="28sp"
             android:textStyle="bold"
 
