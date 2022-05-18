@@ -18,7 +18,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Report a Bug"
+            android:text="Report Bugs"
             android:textSize="55sp"
             android:textColor="@color/black"
 

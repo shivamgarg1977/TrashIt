@@ -127,7 +127,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="150 Rs"
+                                    android:text="₹ 150"
                                     android:textColor="@color/black" />
 
 
@@ -173,7 +173,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="200 Rs"
+                                    android:text="₹ 200"
                                     android:textColor="@color/black" />
                             </RelativeLayout>
 
@@ -215,7 +215,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="50 Rs"
+                                    android:text="₹ 50"
                                     android:textColor="@color/black" />
 
                             </RelativeLayout>
@@ -259,7 +259,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="10 Rs"
+                                    android:text="₹ 10"
                                     android:textColor="@color/black" />
                             </RelativeLayout>
 
@@ -325,7 +325,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="150 Rs"
+                                    android:text="₹ 150"
                                     android:textColor="@color/black" />
 
 
@@ -373,7 +373,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="200 Rs"
+                                    android:text="₹ 200"
                                     android:textColor="@color/black" />
                             </RelativeLayout>
 
@@ -415,7 +415,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
-                                    android:text="50 Rs"
+                                    android:text="₹ 20"
                                     android:textColor="@color/black" />
 
                             </RelativeLayout>
@@ -514,7 +514,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addSteel100"
@@ -559,7 +559,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addGlass100"
@@ -604,7 +604,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addRubber100"
@@ -649,7 +649,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addPlastic100"
@@ -694,7 +694,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addPaper100"
@@ -739,7 +739,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addDevice100"
@@ -784,7 +784,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerHorizontal="true"
                                         android:gravity="center"
-                                        android:text="0 kg" />
+                                        android:text="0.0 KG" />
 
                                     <ImageView
                                         android:id="@+id/addWire"
