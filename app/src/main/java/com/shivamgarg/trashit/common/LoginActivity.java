@@ -35,12 +35,11 @@ import java.util.logging.Logger;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
-
     TextInputEditText username;
     TextInputEditText password;
     ExtendedFloatingActionButton login;
     String emailPattern="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
+    String UserId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,16 +52,13 @@ public class LoginActivity extends AppCompatActivity {
         password=findViewById(R.id.login_user_password);
         login=findViewById(R.id.common_login_register);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 authorizeUser();
             }
         });
-//        if(mAuth.getCurrentUser()!=null){
-//            startActivity(new Intent(LoginActivity.this,UserDashBoard.class) );
-//        }
-
     }
 
     private void authorizeUser() {
@@ -77,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
                         Intent intent=new Intent(LoginActivity.this,UserDashBoard.class);
-                        String UserId = task.getResult().getUser().getUid();
+                        UserId = task.getResult().getUser().getUid();
                         intent.putExtra("Uid",UserId);
                         startActivity(intent);
                     }else{
@@ -91,5 +87,14 @@ public class LoginActivity extends AppCompatActivity {
     public void onSignupClick(View view) {
         startActivity(new Intent(this,SignUpActivity.class));
         overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()!=null){
+            Intent intent=new Intent(this,UserDashBoard.class);
+            intent.putExtra("Uid",UserId);
+            startActivity(intent);
+        }
     }
 }
