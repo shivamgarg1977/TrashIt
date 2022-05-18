@@ -10,20 +10,13 @@
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/drawable/user_bottom_sheet.xml" value="0.136" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/drawable/user_report_a_problem.xml" value="0.167" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/drawable/user_settings.xml" value="0.167" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/font/anton.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/font/arizonia.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_order_in_progress.xml" value="0.22" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_report_abug.xml" value="0.1578125" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_sign_up.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_user_profile.xml" value="0.22" />
+        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_user_profile.xml" value="0.1578125" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/activity_user_report_problem.xml" value="0.1578125" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/card_order_in_progress.xml" value="0.1578125" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/common_splash_screen.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/onboarding_viewpager_slider.xml" value="0.1578125" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/user_dashboard_navigation_header.xml" value="0.15486725663716813" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/user_user_dash_board.xml" value="0.22" />
-        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/menu/user_user_dashboard_nav_menu.xml" value="0.1578125" />
+        <entry key="..\:/Users/aryaa/AndroidStudioProjects/Tramsh-it/app/src/main/res/layout/user_user_dash_board.xml" value="0.1578125" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/button_background_blue.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/common_signup_anime.xml" value="0.165" />
@@ -35,6 +28,9 @@
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/ic_side_bg.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/login_add_img.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/next_btn.xml" value="0.191" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/order_in_progress_header_bg.xml" value="0.1725" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/order_in_progress_header_bg_end.xml" value="0.1725" />
+        <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/order_in_progress_header_bg_start.xml" value="0.1725" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/place_pickup_shape.xml" value="0.165" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/profile_header_bg.xml" value="0.147" />
         <entry key="..\:/Users/shiva/AndroidStudioProjects/TrashIt/app/src/main/res/drawable/report_a_bug_layout.xml" value="0.1725" />

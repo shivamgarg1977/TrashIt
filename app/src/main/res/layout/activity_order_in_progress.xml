@@ -4,40 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+
     android:orientation="vertical"
+    tools:context=".user.OrderInProgress"
     android:background="@color/smith_apple"
-    tools:context=".user.OrderInProgress">
+    >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="10dp">
+        android:layout_height="150dp"
+        android:padding="10dp"
 
-        <TextView
-            android:padding="5dp"
-            android:layout_marginTop="5dp"
-
-            android:background="@drawable/order_in_progress_header_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Order in Progress"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/smith_apple"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/order_in_progress_header_bg_start"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/order_in_progress_header_bg_end"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/clock_card"/>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/order_in_progress_recycler"
@@ -49,11 +61,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
     </LinearLayout>
 
 
 
-
-
-</LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Profile">
+    <item android:title="Menu">
         <menu>
             <group android:checkableBehavior="single">
                 <item
@@ -13,11 +13,7 @@
                     android:title="Order in Progress"
                     android:icon="@drawable/user_progress"
                     />
-                <item
-                    android:id="@+id/user_navigation_order_history"
-                    android:title="History"
-                    android:icon="@drawable/user_history"
-                    />
+
                 <item
                     android:id="@+id/user_navigation_log_out"
                     android:title="Logout"
@@ -35,11 +31,7 @@
                     android:title="Feedback"
                     android:icon="@drawable/user_feedback"
                     />
-                <item
-                    android:id="@+id/user_navigation_settings"
-                    android:title="Settings"
-                    android:icon="@drawable/user_settings"
-                    />
+
                 <item
                     android:id="@+id/user_navigation_report"
                     android:title="Report a problem"
