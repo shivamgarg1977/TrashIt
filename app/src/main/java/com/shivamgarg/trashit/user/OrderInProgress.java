@@ -15,11 +15,14 @@ import com.shivamgarg.trashit.helperClasses.userAdapter.ProgressAdapterClass;
 import com.shivamgarg.trashit.helperClasses.userAdapter.ProgressDataClass;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderInProgress extends AppCompatActivity {
+
     DatabaseReference database;
     private RecyclerView recyclerView;
     List<ProgressDataClass> userDataOrder;
@@ -38,7 +41,7 @@ public class OrderInProgress extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManagerFeaturedRest);
         userDataOrder=new ArrayList<>();
         madapterOrder =new ProgressAdapterClass(userDataOrder);
-        recyclerView.setAdapter(madapterOrder);
+//        recyclerView.setAdapter(madapterOrder);
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -46,6 +49,8 @@ public class OrderInProgress extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                    ProgressDataClass progressDataClass= dataSnapshot.getValue(ProgressDataClass.class);
                    userDataOrder.add(0,progressDataClass);
+                    recyclerView.setAdapter(madapterOrder);
+
                 }
 
             }
