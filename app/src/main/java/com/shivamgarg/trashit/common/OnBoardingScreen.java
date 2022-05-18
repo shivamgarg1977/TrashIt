@@ -7,6 +7,7 @@ import com.shivamgarg.trashit.R;
 import com.shivamgarg.trashit.helperClasses.commonAdapter.SliderAdapter;
 import com.shivamgarg.trashit.user.UserDashBoard;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class OnBoardingScreen extends AppCompatActivity {
         });
     }
     public void skip(View view){
-        startActivity(new Intent(this, SignUpActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
     public void next(View view){

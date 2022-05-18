@@ -1,5 +1,6 @@
 package com.shivamgarg.trashit.user;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -143,7 +144,6 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
-
         ref=database.getReference("Users");
         String Uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
         uid=Uid;
@@ -332,18 +332,21 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         placePickupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(userTerm.isChecked()){
                     SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                     Date date=new Date();
                     String dateString=String.valueOf(simpleDateFormat.format(date));
                     userTerm.setError(null);
-                    Toast.makeText(UserDashBoard.this, "Placing order", Toast.LENGTH_SHORT).show();
                     ref.child(uid).child("Orders").child(dateString).child("userAddress").setValue(userAddress.getText().toString());
                     ref.child(uid).child("Orders").child(dateString).child("userPincode").setValue(userPincode.getText().toString());
                     ref.child(uid).child("Orders").child(dateString).child("scrapWeight").setValue(String.valueOf(totalWeight));
                     ref.child(uid).child("Orders").child(dateString).child("date").setValue(dateString);
 
+                    Toast.makeText(UserDashBoard.this, "Order Placed", Toast.LENGTH_SHORT).show();
+                    placePickup.setVisibility(View.GONE);
                 }else{
+
                     userTerm.setError("Accepts the terms ");
                 }
             }
@@ -525,6 +528,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
         }
         display();
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
     }
 
 

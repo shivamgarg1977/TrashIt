@@ -4,13 +4,14 @@
     >
 
     <corners
-        android:radius="30dp">
+
+        android:bottomLeftRadius="30dp">
 
     </corners>
     <solid
-        android:color="@color/white">
+        android:color="@color/white"
+        />
 
-    </solid>
 
 
 </shape>
