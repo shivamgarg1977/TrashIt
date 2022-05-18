@@ -17,13 +17,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/brand_ongrotesque_black"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/archivo_black"
             android:gravity="center"
-            android:text=""
-            android:textSize="28sp"
-            android:textStyle="bold"
+
+            android:textSize="25sp"
+            android:textColor="@color/black"
 
             />
+
 
     </RelativeLayout>
 
@@ -41,7 +43,8 @@
             android:id="@+id/nav_header_profile_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/man"/>
+            android:src="@drawable/man"
+            android:contentDescription="Profile pic" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
