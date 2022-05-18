@@ -187,8 +187,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         devicesAdd100 = findViewById(R.id.addDevice100);
 
         WiresCard = findViewById(R.id.layout2_card3);
-        devicesRemove100 = findViewById(R.id.removeWire);
-        devicesAdd100 = findViewById(R.id.addWire);
+        wiresRemove100 = findViewById(R.id.removeWire);
+        wiresAdd100 = findViewById(R.id.addWire);
 
 
 
@@ -198,6 +198,11 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         glassWeight = (TextView) findViewById(R.id.glassNumeric);
         rubberWeight = (TextView) findViewById(R.id.rubberNumeric);
         plasticWeight = (TextView) findViewById(R.id.plasticNumeric);
+
+        // second layout card
+        paperWeight = findViewById(R.id.paperNumeric);
+        devicesWeight =findViewById(R.id.devicesNumeric);
+        wiresWeight = findViewById(R.id.wiresNumeric);
 
 
         DashboardProfile = findViewById(R.id.user_user_dash_board_profile);
@@ -239,8 +244,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         });
 
 
-        // second layout card
-        paperWeight = findViewById(R.id.paperNumeric);
+
 
 
         //navigation Drawer
@@ -294,6 +298,22 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         rubberAdd100.setOnClickListener(this);
         rubberRemove100.setOnClickListener(this);
 
+        PaperCard.setOnClickListener(this);
+        paperAdd100.setOnClickListener(this);
+        paperRemove100.setOnClickListener(this);
+
+        DevicesCard.setOnClickListener(this);
+        devicesAdd100.setOnClickListener(this);
+        devicesRemove100.setOnClickListener(this);
+
+        WiresCard.setOnClickListener(this);
+        wiresAdd100.setOnClickListener(this);
+        wiresRemove100.setOnClickListener(this);
+
+
+
+
+
         takeAPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -304,7 +324,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                totalWeight = weightOfGlass + weightOfPlastic + weightOfRubber + weightOfSteel;
+                totalWeight = weightOfGlass + weightOfPlastic + weightOfRubber + weightOfSteel + weightOfPaper +weightOfDevices +weightOfWires;
                 pickupWeight.setText(String.valueOf(totalWeight) + "KGs");
                 placePickup.setVisibility(View.VISIBLE);
             }
@@ -450,6 +470,15 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
             case R.id.layout1_card4:
                 weightOfPlastic += 1;
                 break;
+            case R.id.layout2_card1:
+                weightOfPaper += 1;
+                break;
+            case R.id.layout2card2:
+                weightOfDevices += 1;
+                break;
+            case R.id.layout2_card3:
+                weightOfWires += 1;
+                break;
             case R.id.removeSteel100:
                 weightOfSteel -= 0.1;
                 break;
@@ -461,6 +490,15 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.removePlastic100:
                 weightOfPlastic -= 0.1;
+                break;
+            case R.id.removePaper100:
+                weightOfPaper -= 0.1;
+                break;
+            case R.id.removeDevice100:
+                weightOfDevices -= 0.1;
+                break;
+            case R.id.removeWire:
+                weightOfWires -= 0.1;
                 break;
 
             case R.id.addSteel100:
@@ -475,16 +513,29 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
             case R.id.addPlastic100:
                 weightOfPlastic += 0.1;
                 break;
+            case R.id.addPaper100:
+                weightOfPaper += 0.1;
+                break;
+            case R.id.addDevice100:
+                weightOfDevices += 0.1;
+                break;
+            case R.id.addWire:
+                weightOfWires += 0.1;
+                break;
+
         }
         display();
     }
 
 
     public void display() {
-        steelWeight.setText(String.format("%.1f", weightOfSteel) + " kg");
-        glassWeight.setText(String.format("%.1f", weightOfGlass) + " kg");
-        rubberWeight.setText(String.format("%.1f", weightOfRubber) + " kg");
-        plasticWeight.setText(String.format("%.1f", weightOfPlastic) + " kg");
+        steelWeight.setText(String.format("%.1f", weightOfSteel) + " KG");
+        glassWeight.setText(String.format("%.1f", weightOfGlass) + " KG");
+        rubberWeight.setText(String.format("%.1f", weightOfRubber) + " KG");
+        plasticWeight.setText(String.format("%.1f", weightOfPlastic) + " KG");
+        paperWeight.setText(String.format("%.1f", weightOfPaper) + " KG");
+        devicesWeight.setText(String.format("%.1f", weightOfDevices) + " KG");
+        wiresWeight.setText(String.format("%.1f", weightOfWires) + " KG");
     }
 
 
