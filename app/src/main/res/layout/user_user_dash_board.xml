@@ -472,7 +472,7 @@
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/use_user_dash_board_card_view"
                         android:elevation="10dp"
-
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
