@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +34,9 @@ import com.shivamgarg.trashit.R;
 import com.shivamgarg.trashit.common.LoginActivity;
 
 import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UserDashBoard extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     FirebaseAuth mAuth;
@@ -108,6 +113,10 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     //Hooks of place pickup drawable
     FrameLayout placePickup;
     TextView pickupWeight;
+    TextInputEditText userAddress;
+    TextInputEditText userPincode;
+    ExtendedFloatingActionButton placePickupButton;
+    CheckBox userTerm;
 
 
     //Values for orders
@@ -125,8 +134,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
     private String fullName;
     private String email;
     private String phoneNumber;
-
-
+    private String uid;
+    private String address="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,30 +145,9 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         database=FirebaseDatabase.getInstance();
 
         ref=database.getReference("Users");
-        String Uid=getIntent().getStringExtra("Uid");
-        ref.child(Uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
+        String Uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+        uid=Uid;
 
-                    if(task.getResult().exists()){
-                        DataSnapshot dataSnapshot= task.getResult();
-
-                        TextView profileName=navigationView.getHeaderView(0).findViewById(R.id.nav_header_full_name);
-                        profileName.setText(String.valueOf(dataSnapshot.child("fullName").getValue()));
-                        fullName=String.valueOf(dataSnapshot.child("fullName").getValue());
-                        email=String.valueOf(dataSnapshot.child("email").getValue());
-                        phoneNumber=String.valueOf(dataSnapshot.child("phoneNumber").getValue());
-
-                    }else{
-                        Toast.makeText(UserDashBoard.this, "User Doesn't exists", Toast.LENGTH_SHORT).show();
-                    }
-
-                }else{
-                    Toast.makeText(UserDashBoard.this, "Failed! to fetch data", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         // Find View By Id
         drawerLayout = findViewById(R.id.user_dashboard_drawer_layout);
         navigationView = findViewById(R.id.user_user_dash_board_navigation_view);
@@ -216,6 +204,40 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
         layout1 = findViewById(R.id.user_dashboard_coordinator_Layout1);
         placePickup = findViewById(R.id.place_pickup_bottom_sheet);
         pickupWeight = findViewById(R.id.place_pickup_weight);
+        userAddress=findViewById(R.id.user_address);
+        userPincode=findViewById(R.id.user_pincode);
+        placePickupButton=findViewById(R.id.place_pickup);
+        userTerm=findViewById(R.id.user_terms);
+
+
+        ref.child(Uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot= task.getResult();
+
+                        TextView profileName=navigationView.getHeaderView(0).findViewById(R.id.nav_header_full_name);
+                        profileName.setText(String.valueOf(dataSnapshot.child("fullName").getValue()));
+                        fullName=String.valueOf(dataSnapshot.child("fullName").getValue());
+                        email=String.valueOf(dataSnapshot.child("email").getValue());
+                        phoneNumber=String.valueOf(dataSnapshot.child("phoneNumber").getValue());
+                        if(String.valueOf(dataSnapshot.child("address").getValue())!=null){
+                            address=String.valueOf(dataSnapshot.child("address").getValue());
+                            userAddress.setText(address);
+                        }
+
+                    }else{
+                        Toast.makeText(UserDashBoard.this, "User Doesn't exists", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(UserDashBoard.this, "Failed! to fetch data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
         // second layout card
         paperWeight = findViewById(R.id.paperNumeric);
@@ -223,6 +245,9 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
         //navigation Drawer
         navigationDrawer();
+
+
+
 
 
         addOrder.setOnClickListener(new View.OnClickListener() {
@@ -284,6 +309,26 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 placePickup.setVisibility(View.VISIBLE);
             }
         });
+        placePickupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(userTerm.isChecked()){
+                    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                    Date date=new Date();
+                    String dateString=String.valueOf(simpleDateFormat.format(date));
+                    userTerm.setError(null);
+                    Toast.makeText(UserDashBoard.this, "Placing order", Toast.LENGTH_SHORT).show();
+                    ref.child(uid).child("Orders").child(dateString).child("userAddress").setValue(userAddress.getText().toString());
+                    ref.child(uid).child("Orders").child(dateString).child("userPincode").setValue(userPincode.getText().toString());
+                    ref.child(uid).child("Orders").child(dateString).child("scrapWeight").setValue(String.valueOf(totalWeight));
+                    ref.child(uid).child("Orders").child(dateString).child("date").setValue(dateString);
+
+                }else{
+                    userTerm.setError("Accepts the terms ");
+                }
+            }
+        });
+
 
     }
 
@@ -301,6 +346,8 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
                 profileIntent.putExtra("fullName",fullName);
                 profileIntent.putExtra("email",email);
                 profileIntent.putExtra("phoneNumber",phoneNumber);
+                profileIntent.putExtra("Uid",uid);
+                profileIntent.putExtra("address",address);
                 startActivity(profileIntent);
             }
         });
@@ -380,7 +427,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
             case R.id.user_navigation_order_in_progress:
                 Intent progressIntent = new Intent(UserDashBoard.this,
                         OrderInProgress.class);
-
+                progressIntent.putExtra("Uid",uid);
                 startActivity(progressIntent);
                 break;
         }

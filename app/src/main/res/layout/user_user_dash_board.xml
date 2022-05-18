@@ -28,13 +28,18 @@
             android:id="@+id/user_page_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
+
+
+            android:layout_gravity="top|center_horizontal"
+            android:textStyle="bold"
+
             android:layout_marginTop="50dp"
             android:fontFamily="@font/brand_ongrotesque_black"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="60sp"
-            android:textStyle="bold" />
+
+  android:textSize="55sp" />
+
 
         <RelativeLayout
             android:id="@+id/user_user_dash_board_bottom_sheet"
@@ -976,29 +981,27 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/user_address"
+
                         style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="20dp"
                         android:visibility="visible">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/user_address_input_View"
+                            android:id="@+id/user_address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter your address"
                             android:inputType="text"
-
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/user_pincode"
+
                         style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1010,7 +1013,7 @@
                         android:visibility="visible">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/user_pincode_input_View"
+                            android:id="@+id/user_pincode"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Pincode"
@@ -1018,6 +1021,7 @@
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
                     <CheckBox
+                        android:id="@+id/user_terms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="I ,here accept all the terms and conditions"
