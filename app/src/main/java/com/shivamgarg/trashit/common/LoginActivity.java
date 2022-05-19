@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserId = task.getResult().getUser().getUid();
                         intent.putExtra("Uid",UserId);
                         startActivity(intent);
+                        finish();
                     }else{
                         Toast.makeText(LoginActivity.this, "Login failed:"+task.getException(), Toast.LENGTH_SHORT).show();
                     }
@@ -95,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent=new Intent(this,UserDashBoard.class);
             intent.putExtra("Uid",UserId);
             startActivity(intent);
+            finish();
         }
     }
 }

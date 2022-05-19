@@ -268,7 +268,7 @@ public class UserDashBoard extends AppCompatActivity implements View.OnClickList
 
                     userBottomSheet.setLayoutParams(params);
                 } else {
-                    Toast.makeText(UserDashBoard.this, "Cards are now Clickable! ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(UserDashBoard.this, "Cards are now Clickable! ", Toast.LENGTH_SHORT).show();
                     addOrder.setImageResource(R.drawable.ic_outline_keyboard_arrow_down_24);
                     ViewGroup.LayoutParams params = userBottomSheet.getLayoutParams();
                     // Changes the height and width to the specified *pixels*
